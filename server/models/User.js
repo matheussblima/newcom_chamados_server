@@ -1,6 +1,4 @@
-import mongoose from 'mongoose';
-
-const { Schema } = mongoose;
+import mongoose, { Schema } from 'mongoose';
 
 const userSchema = new Schema({
   username: {
@@ -13,6 +11,8 @@ const userSchema = new Schema({
     required: true,
     minlength: [8, 'Password must be 8 caracters or more.'],
   },
+  isDeleted: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now() },
 });
 
 const User = mongoose.model('User', userSchema);

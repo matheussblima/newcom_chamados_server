@@ -1,4 +1,5 @@
 import UserController from './UserController';
 import TaskController from './TaskController';
+import StatusTaskController from './StatusTask';
 
-export { UserController, TaskController };
+export { UserController, TaskController, StatusTaskController };

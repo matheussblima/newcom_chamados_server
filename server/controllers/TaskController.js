@@ -13,7 +13,7 @@ taskController.post = (req, res) => {
         userId,
         validityDate } = req.body;
 
-    const Task = new Task({
+    const task = new Task({
         name,
         description,
         _status: statusId,
@@ -24,7 +24,7 @@ taskController.post = (req, res) => {
         validityDate
     });
 
-    Task.save().then((newTask) => {
+    task.save().then((newTask) => {
         res.status(200).json({
             success: true,
             data: newTask,
@@ -34,6 +34,25 @@ taskController.post = (req, res) => {
             message: err,
         });
     });
+};
+
+taskController.getAll = (req, res) => {
+    Task.find({}).
+        populate('_createdBy').
+        populate('_customer').
+        populate('_equipment').
+        populate('_status').
+        populate('_employee').
+        then((task) => {
+            res.status(200).json({
+                success: true,
+                data: task,
+            });
+        }).catch((err) => {
+            res.status(500).json({
+                message: err,
+            });
+        });
 };
 
 export default taskController;

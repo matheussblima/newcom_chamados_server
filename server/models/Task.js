@@ -7,7 +7,7 @@ const TaskSchema = new Schema({
     _customer: { type: Schema.ObjectId, ref: 'Customer' },
     _comment: { type: Schema.ObjectId, ref: 'CommentTask' },
     _equipment: [{ type: Schema.ObjectId, ref: 'Equipment' }],
-    _employee: { type: Schema.ObjectId, ref: 'employee' },
+    _employee: { type: Schema.ObjectId, ref: 'Employee' },
     _createdBy: { type: Schema.ObjectId, ref: 'User', required: true },
     validityDate: { type: Date, required: true },
     isDeleted: { type: Boolean, default: false },

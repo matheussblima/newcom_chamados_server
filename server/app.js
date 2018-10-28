@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import { user } from './routes';
+import loadAllRoutes from './routes';
 
 const app = express();
 
@@ -16,6 +16,7 @@ mongoose.connect(
 // middleware BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/api', user);
+
+loadAllRoutes(app);
 
 export default app;

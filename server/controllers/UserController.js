@@ -4,9 +4,11 @@ const userControlller = {};
 
 // POST
 userControlller.post = (req, res) => {
-  const { username, password } = req.body;
+  const { name, photo, username, password } = req.body;
 
   const user = new User({
+    name,
+    photo,
     username,
     password,
   });
@@ -21,7 +23,7 @@ userControlller.post = (req, res) => {
     })
     .catch((err) => {
       res.status(500).json({
-        mensagem: err,
+        message: err,
       });
     });
 };

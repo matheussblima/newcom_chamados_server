@@ -1,3 +1,9 @@
-import user from './user';
+import User from './User';
+import Task from './Task';
 
-export { user };
+const loadAllRoutes = (app) => {
+    app.use('/api', User);
+    app.use('/api', Task);
+}
+
+export default loadAllRoutes;

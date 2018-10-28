@@ -11,6 +11,7 @@ const EmployeeSchema = new Schema({
     cpf: { type: String, required: true },
     dateBirth: { type: Date, required: true },
     phone: {
+        type: String,
         validate: {
             validator: (num) => {
                 const regex = /^\d{10}$/;
@@ -20,6 +21,7 @@ const EmployeeSchema = new Schema({
         },
         required: true,
     },
+    _Task: [{ type: Schema.ObjectId, ref: 'Task' }],
     address: { type: String, required: true },
     city: { type: String, required: true },
     state: {

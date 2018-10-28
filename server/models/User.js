@@ -1,6 +1,13 @@
 import mongoose, { Schema } from 'mongoose';
 
 const userSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  photo: {
+    data: Buffer, contentType: String,
+  },
   username: {
     type: String,
     required: true,

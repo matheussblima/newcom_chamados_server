@@ -2,6 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const CustomerSchema = new Schema({
     name: { type: String, required: true },
+    _task: [{ type: Schema.ObjectId, ref: 'Customer' }],
     cnpj: {
         type: String,
         maxlength: [14, 'The CNJP code is not the correct size'],
@@ -14,6 +15,7 @@ const CustomerSchema = new Schema({
         data: Buffer, contentType: String,
     },
     phone: {
+        type: String,
         validate: {
             validator: (num) => {
                 const regex = /^\d{10}$/;
@@ -23,6 +25,7 @@ const CustomerSchema = new Schema({
         },
         required: true,
     },
+    _equipment: [{ type: Schema.ObjectId, ref: 'Equipment' }],
     address: { type: String, required: true },
     city: { type: String, required: true },
     state: {

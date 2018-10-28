@@ -1,8 +1,8 @@
 import express from 'express';
-import { userController } from '../controllers';
+import { UserController } from '../controllers';
 
 const app = express();
 
-app.post('/singup', userController.post);
+app.post('/singup', UserController.post);
 
 export default app;

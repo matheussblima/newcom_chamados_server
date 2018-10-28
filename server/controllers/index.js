@@ -1,3 +1,4 @@
-import userController from './UserController';
+import UserController from './UserController';
+import TaskController from './TaskController';
 
-export { userController };
+export { UserController, TaskController };

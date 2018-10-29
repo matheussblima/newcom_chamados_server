@@ -3,9 +3,9 @@ import { TaskController } from '../controllers';
 
 const app = express();
 
-//POST
+// POST
 app.post('/task', TaskController.post);
-//GET
+// GET
 app.get('/task', TaskController.getAll);
 
 export default app;
